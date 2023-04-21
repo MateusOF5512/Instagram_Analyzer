@@ -4,8 +4,6 @@ import streamlit as st
 from PIL import Image
 from io import BytesIO
 
-from variaveis.variaveis_css import *
-
 import pandas as pd
 import numpy as np
 import requests
@@ -25,8 +23,11 @@ st.markdown(""" <style>
 
 st.markdown("<h1 style='font-size:250%; text-align: center; color: #8435B4; padding: 0px 0px;'" +
                 ">Instagram Monitor</h1>", unsafe_allow_html=True)
+st.markdown('---')
 st.markdown("""<style> .css-z5fcl4.egzxvld4 {margin-top: -50px;}</style>""", unsafe_allow_html=True)
 st.markdown("""<style> .css-1544g2n.e1fqkh3o4 {margin-top: -50px;}</style>""", unsafe_allow_html=True)
+st.markdown("""<style> .card {margin-top: -60px;}</style>""", unsafe_allow_html=True)
+
 
 
 with st.sidebar:
@@ -34,11 +35,23 @@ with st.sidebar:
                 ">Painel de controle</h1>", unsafe_allow_html=True)
     st.markdown('---')
 
-    API = st.radio('Selecione o tipo da análise sobre o Perfil/Publicação:',
-                       ['Informações Perfil', 'Feed 50+ Posts'],
-                       index=0, key=99, horizontal=True)
+    API = st.radio('Selecione o tipo da análise sobre o Perfil:',
+                   ['Informações Perfil', 'Feed 50+ Posts'],
+                   help='Tipos de análise do Perfil:\n\n'
+                        '- INFORMAÇÕES PERFIL: nesta aba, é possível visualizar informações básicas sobre o perfil '
+                        'do Instagram pesquisado, como nome de usuário, número de seguidores, seguidos e quantidade '
+                        'de publicações. Também são apresentadas as últimas 12 publicações do perfil, permitindo uma '
+                        'rápida visualização do tipo de conteúdo postado.\n\n'
+                        '- FEED 50+ POSTS: nesta aba, o usuário tem acesso a uma análise mais detalhada das publicações '
+                        'do perfil pesquisado. Inicialmente são exibidas as últimas 50 publicações, mas é possível '
+                        'selecionar até 250 posts. Através dessa análise, é possível ter uma visão completa do perfil '
+                        'e entender melhor como os seguidores interagem com as publicações.',
 
-    perfil = st.text_input("Insira o @perfil que deseja analisar:")
+                   index=0, key=99, horizontal=True)
+
+    perfil = st.text_input("Insira o Perfil que deseja analisar:",
+                           help='Pesquise qualquer Perfil do Instagram ABERTO com mais de 12 publicações '
+                                'para começar sua análise. Preencha apenas com nome da conta, SEM @')
 
     if API == 'Feed 50+ Posts':
         end_cursor = st.slider('Selecione o N° de Publicações:',
@@ -46,10 +59,16 @@ with st.sidebar:
 
     FUNCAO = st.radio('Selecione o tipo da análise:',
                       ['Dashboard Personalizado 📈', 'Observatório de Dados 🔎'],
+                      help = 'Escolha o tipo de analise para realizar nos dados:\n\n'
+                             '- DASHBOARD PERSONALIZADO: explore dados de forma rápida e simples através de gráficos pré-desenvolvidos. Descubra insights valiosos respondendo às principais perguntas.\n\n'
+                             '- OBSERVATÓRIO DE DADOS: analise todas as variáveis dos dados sob diferentes perspectivas, usando diversos gráficos e filtros para responder às perguntas mais criativas.',
                       index=0, key=97, horizontal=False)
 
 
-if len(perfil) != 0:
+if len(perfil) == 0:
+    st.markdown(html_card_1, unsafe_allow_html=True)
+
+elif len(perfil) != 0:
     res_info = requi_info(perfil)
     df_info = convert_info_instagram_looter2(res_info)
 
