@@ -49,7 +49,7 @@ def parte1(df_info, df_midia):
                 ">Informações sobre às "+df_size+" últimas publicações - Tabela Dinâmica</h3>",
                 unsafe_allow_html=True)
     agg_tabela(df_midia, True)
-    st.divider()
+    st.markdown('---')
 
 
 
@@ -108,7 +108,7 @@ def dashboard(df_info, df):
     response = requests.get(df_info["FOTO HD"][0])
     img = Image.open(BytesIO(response.content))
 
-    st.divider()
+    st.markdown('---')
     st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 10px 0px 10px 0px;'" +
                 ">Informações básicas sobre o perfil </h3>",
                 unsafe_allow_html=True)
@@ -124,7 +124,7 @@ def dashboard(df_info, df):
                 ">Informações sobre às " + df_size + " últimas publicações - Tabela Dinâmica</h3>",
                 unsafe_allow_html=True)
     agg_tabela(df, True)
-    st.divider()
+    st.markdown('---')
 
 
 
