@@ -14,7 +14,6 @@ from plots.plots import *
 
 im = Image.open("instagram.png")
 st.set_page_config(page_title="Instagram Monitor", page_icon=im, layout="wide")
-# emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 
 st.markdown(""" <style>
         footer {visibility: hidden;}
@@ -24,9 +23,10 @@ st.markdown(""" <style>
 st.markdown("<h1 style='font-size:250%; text-align: center; color: #8435B4; padding: 0px 0px;'" +
                 ">Instagram Monitor</h1>", unsafe_allow_html=True)
 st.markdown('---')
-st.markdown("""<style> .css-z5fcl4.egzxvld4 {margin-top: -50px;}</style>""", unsafe_allow_html=True)
-st.markdown("""<style> .css-1544g2n.e1fqkh3o4 {margin-top: -50px;}</style>""", unsafe_allow_html=True)
-st.markdown("""<style> .card {margin-top: -60px;}</style>""", unsafe_allow_html=True)
+
+st.markdown("""<style> .css-z5fcl4.egzxvld4 {margin-top: -75px;}</style>""", unsafe_allow_html=True)
+st.markdown("""<style> .css-1544g2n.e1fqkh3o4 {margin-top: -40px;}</style>""", unsafe_allow_html=True)
+st.markdown("""<style> .card {margin-top: -50px;}</style>""", unsafe_allow_html=True)
 
 
 
@@ -55,7 +55,7 @@ with st.sidebar:
 
     if API == 'Feed 50+ Posts':
         end_cursor = st.slider('Selecione o N° de Publicações:',
-                                   min_value=50, max_value=250, value=50, step=50, key=98)
+                                   min_value=50, max_value=250, value=50, step=50, key=95)
 
     FUNCAO = st.radio('Selecione o tipo da análise:',
                       ['Dashboard Personalizado 📈', 'Observatório de Dados 🔎'],
@@ -132,11 +132,6 @@ elif len(perfil) != 0:
                                      options=semana_df, default=semana_df, key=43)
 
 
-        grafico = st.selectbox('Tipo do Gráfico:',
-                               ['Barra Simples', 'Linha Simples', 'Barras Empilhadas', 'Barras Agrupadas',
-                                'Multiplas Linhas', 'Multiplas Áreas', 'Área Normalizada'],
-                               index=0, key=98)
-
     df_midia = df_midia.loc[mask_valor]
     df_midia = df_midia[df_midia['TIPO POST'].isin(tipo_df)]
     df_midia = df_midia[df_midia['SEMANA'].isin(semana_df)]
@@ -149,12 +144,6 @@ elif len(perfil) != 0:
 
     elif FUNCAO == 'Dashboard Personalizado 📈':
         dashboard(df_info, df_midia)
-
-
-
-
-
-st.markdown("""---""")
 
 
 
