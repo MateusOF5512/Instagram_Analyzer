@@ -34,8 +34,8 @@ def parte1(df_info, df_midia):
     response = requests.get(df_info["FOTO HD"][0])
     img = Image.open(BytesIO(response.content))
 
-    st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 0px 0px 10px 0px;'" +
-                ">Informações básicas sobre o perfil </h3>",
+    st.markdown("<h2 style='font-size:150%; text-align: center; color: #8435B4; padding: 0px 0px 10px 0px;"
+                ">Informações básicas sobre o perfil </h2>",
                 unsafe_allow_html=True)
     col1A, col2A = st.columns([10, 1])
     with col1A:
@@ -45,8 +45,8 @@ def parte1(df_info, df_midia):
 
     df_size = str(len(df_midia))
 
-    st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 0px 0px 10px 0px;'" +
-                ">Informações sobre às "+df_size+" últimas publicações - Tabela Dinâmica</h3>",
+    st.markdown("<h2 style='font-size:150%; text-align: center; color: #8435B4; padding: 0px 0px 10px 0px;'" +
+                ">Informações sobre às "+df_size+" últimas publicações - Tabela Dinâmica</h2>",
                 unsafe_allow_html=True)
     agg_tabela(df_midia, True)
     st.markdown('---')
@@ -108,8 +108,8 @@ def dashboard(df_info, df):
     response = requests.get(df_info["FOTO HD"][0])
     img = Image.open(BytesIO(response.content))
 
-    st.markdown('---')
-    st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 10px 0px 10px 0px;'" +
+    #st.markdown('---')
+    st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 0px 0px 10px 0px; padding-top: -40px;'" +
                 ">Informações básicas sobre o perfil </h3>",
                 unsafe_allow_html=True)
     col1A, col2A = st.columns([10, 1])
@@ -120,7 +120,7 @@ def dashboard(df_info, df):
 
     df_size = str(len(df))
 
-    st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 10px 0px 10px 0px;'" +
+    st.markdown("<h3 style='font-size:150%; text-align: center; color: #8435B4; padding: 0px 0px 10px 0px;'" +
                 ">Informações sobre às " + df_size + " últimas publicações - Tabela Dinâmica</h3>",
                 unsafe_allow_html=True)
     agg_tabela(df, True)
