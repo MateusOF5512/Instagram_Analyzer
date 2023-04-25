@@ -5,3 +5,5 @@ App Web: [Instagram Analyzer](https://instagram-monitor.streamlit.app/)
 
 ## Demo
 ![alt text](image/insta1.gif)
+
+![GitHub Org's stars](https://img.shields.io/github/stars/camilafernanda?style=social)
