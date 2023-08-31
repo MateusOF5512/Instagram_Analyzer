@@ -156,17 +156,17 @@ def bar_hora(df):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         name='Likes', x=values, y=y_num_soma,
-        hovertemplate="</br><b>Total de Likes:</b> %{y:,.0f}",
+        hovertemplate="</br><b>Média de Likes:</b> %{y:,.0f}",
         textposition='none', marker_color='#E1306C'
     ))
     fig.add_trace(go.Bar(
         name='Comentários', x=values, y=y_num_comments,
-        hovertemplate="</br><b>Total de Comentários:</b> %{y:,.0f}",
+        hovertemplate="</br><b>Média de Comentários:</b> %{y:,.0f}",
         textposition='none', marker_color='#833AB4'
     ))
     fig.add_trace(go.Bar(
         name='Publicações', x=values, y=y_num,
-        hovertemplate="</br><b>Total de Publicações:</b> %{y:,.0f}",
+        hovertemplate="</br><b>Publicações:</b> %{y:,.0f}",
         textposition='none', marker_color='#405DE6'
     ))
     fig.update_layout(
@@ -194,17 +194,17 @@ def bar_semana(df):
     fig = go.Figure()
     fig.add_trace(go.Bar(
         name='Likes', x=values, y=y_num_soma,
-        hovertemplate="</br><b>Total de Likes:</b> %{y:,.0f}",
+        hovertemplate="</br><b>Média de Likes:</b> %{y:,.0f}",
         textposition='none', marker_color='#E1306C'
     ))
     fig.add_trace(go.Bar(
         name='Comentários', x=values, y=y_num_comments,
-        hovertemplate="</br><b>Total de Comentários:</b> %{y:,.0f}",
+        hovertemplate="</br><b>Média de Comentários:</b> %{y:,.0f}",
         textposition='none', marker_color='#833AB4'
     ))
     fig.add_trace(go.Bar(
         name='Publicações', x=values, y=y_num,
-        hovertemplate="</br><b>Total de Publicações:</b> %{y:,.0f}",
+        hovertemplate="</br><b>Publicações:</b> %{y:,.0f}",
         textposition='none', marker_color='#405DE6'
     ))
     fig.update_layout(
