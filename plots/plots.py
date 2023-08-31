@@ -143,7 +143,7 @@ def plot_point_nome(df):
 
 def bar_hora(df):
     df_week = df.groupby('HORA').agg('mean').reset_index()
-    df_week_soma = df.groupby('HORA').agg('sum').reset_index()
+    df_week_soma = df.groupby('HORA').agg('mean').reset_index()
 
     values = df_week.HORA.unique()
     y_like = df_week['LIKES']
@@ -183,7 +183,7 @@ def bar_hora(df):
     return fig
 
 def bar_semana(df):
-    df_week_soma = df.groupby('SEMANA').agg('sum').reset_index().sort_values(by='LIKES', ascending=False)
+    df_week_soma = df.groupby('SEMANA').agg('mean').reset_index().sort_values(by='LIKES', ascending=False)
 
     values = df_week_soma['SEMANA'].unique()
 
